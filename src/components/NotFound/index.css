@@ -1,0 +1,22 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  height: 100vh;
+  text-align: center;
+}
+.not-found-img {
+  width: 40%;
+}
+.not-found-mesg {
+  font-size: 18px;
+  color: #7e858e;
+  font-weight: 540;
+}
+.nf-heading {
+  color: white;
+  font-size: 30px;
+}

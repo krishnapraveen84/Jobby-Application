@@ -1,0 +1,95 @@
+.job-details-page {
+  background-color: black;
+  padding-bottom: 30px;
+}
+.job-details-container {
+  padding: 15px;
+  padding-top: 25px;
+}
+.detailed-card {
+  color: white;
+}
+.skills-container {
+  list-style: none;
+  padding-left: 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.skill-card {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  min-width: 120px;
+}
+.skill-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.skill-name {
+  font-size: 15px;
+  font-weight: 520;
+  color: white;
+  margin-left: 5px;
+}
+.life-at-img {
+  width: 100%;
+  border-radius: 6px;
+}
+.detailed-loader {
+  height: 100vh;
+}
+.similar-jobs-container {
+  color: white;
+}
+.description-link-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.anchor-tag {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 530;
+  color: #6366f1;
+}
+@media screen and (min-width: 768px) {
+  .content {
+    width: 60%;
+  }
+  .life-at-card {
+    display: flex;
+    align-items: flex-start;
+  }
+  .life-description {
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .life-at-img {
+    width: 40%;
+    margin-top: 15px;
+    padding: 10px;
+  }
+  .headings {
+    font-size: 26px;
+    font-weight: 540;
+  }
+  .skill-card {
+    min-width: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  .skill-img {
+    width: 60px;
+    height: 60px;
+  }
+  .skill-name {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .detailed-loader {
+    height: 100vh;
+  }
+}

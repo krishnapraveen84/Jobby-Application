@@ -1,0 +1,77 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+  background-size: cover;
+  padding: 20px;
+}
+.login-card {
+  background-color: #272727;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+.login-img {
+  width: 35%;
+  align-self: center;
+  margin-bottom: 10px;
+}
+.user-name-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.label {
+  font-size: 16px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: 530;
+  margin-bottom: 10px;
+}
+.login-input {
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #647284;
+  outline: none;
+  color: #f1f5f9;
+  border-radius: 5px;
+}
+.submit-btn {
+  background-color: #6366f1;
+  border-style: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 520;
+  margin-top: 10px;
+  height: 40px;
+}
+.error-mes {
+  margin-top: 6px;
+}
+.error-mes {
+  color: red;
+  font-size: 15px;
+}
+@media screen and (min-width: 768px) {
+  .login-card {
+    width: 35%;
+    padding: 50px;
+  }
+  .login-input {
+    height: 45px;
+    font-size: 17px;
+  }
+}
