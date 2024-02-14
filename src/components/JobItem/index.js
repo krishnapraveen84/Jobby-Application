@@ -79,29 +79,32 @@ const JobItem = props => {
   }
 
   const renderdiffrentStatus = () => {
-    if (status.inprogress === apiStatus) {
-      return renderLoader()
-    } else if (status.success === apiStatus) {
-      return renderJobs()
-    } else if (status.fail === apiStatus) {
-      return (
-        <div className="failure-div">
-          <img
-            className="failure-img"
-            src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
-            alt="failure view"
-          />
-          <h1 className="not-found-heading">Oops! Something Went Wrong</h1>
-          <p className="not-found-desc">
-            We cannot seem to find the page you are looking for
-          </p>
-          <div className="retry-div">
-            <button type="button" className="retry-btn">
-              Retry
-            </button>
+    switch (apiStatus) {
+      case status.inprogress:
+        return renderLoader()
+      case status.success:
+        return renderJobs()
+      case status.fail:
+        return (
+          <div className="failure-div">
+            <img
+              className="failure-img"
+              src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+              alt="failure view"
+            />
+            <h1 className="not-found-heading">Oops! Something Went Wrong</h1>
+            <p className="not-found-desc">
+              We cannot seem to find the page you are looking for
+            </p>
+            <div className="retry-div">
+              <button type="button" className="retry-btn">
+                Retry
+              </button>
+            </div>
           </div>
-        </div>
-      )
+        )
+      default:
+        return null
     }
   }
 
@@ -109,3 +112,14 @@ const JobItem = props => {
 }
 
 export default JobItem
+// if (status.inprogress === apiStatus) {
+//   return renderLoader()
+// }
+// if (status.success === apiStatus) {
+//   return renderJobs()
+// }
+// if (status.fail === apiStatus) {
+//   return (
+
+//   )
+// }

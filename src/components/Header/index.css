@@ -1,6 +1,6 @@
 .navBar {
   background-color: #272727;
-  padding: 10px;
+  padding: 10px 15px 10px 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@
   padding-left: 0px;
 }
 .logo-img {
-  width: 32%;
+  width: 60%;
 }
 .icons {
   background-color: transparent;
@@ -32,6 +32,7 @@
 }
 .link {
   text-decoration: none;
+  width: 30%;
 }
 .routes-links {
   display: none;
@@ -44,7 +45,7 @@
 }
 @media screen and (min-width: 768px) {
   .logo-img {
-    width: 13%;
+    width: 60%;
   }
   .nav-items-sm {
     display: none;
@@ -77,6 +78,8 @@
     color: white;
     font-weight: 500;
     cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .logout-item {
     margin-left: auto;

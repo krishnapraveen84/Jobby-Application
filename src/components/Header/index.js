@@ -13,10 +13,11 @@ const Header = props => {
   }
   return (
     <div className="navBar">
-      <Link to="/" className="logo-img links">
+      <Link to="/" className="links">
         <img
           src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
           alt="website logo"
+          className="logo-img"
         />
       </Link>
 

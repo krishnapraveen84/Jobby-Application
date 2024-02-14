@@ -49,12 +49,21 @@ const salaryRangesList = [
     label: '40 LPA and above',
   },
 ]
+
+const loactionsList = [
+  {loactionName: 'Hyderabad', locId: 'HYB'},
+  {loactionName: 'Bangalore', locId: 'BNG'},
+  {loactionName: 'Chennai', locId: 'CHNI'},
+  {loactionName: 'Delhi', locId: 'DEH'},
+  {loactionName: 'Mumbai', locId: 'MI'},
+]
 class Jobs extends Component {
   state = {
     userProfile: '',
     currentStatus: status.inprogress,
     minimumPackage: '',
     employmentType: [],
+    loactions: [],
     searchInput: '',
     jobsList: [],
     apiStatus: status.inprogress,
@@ -143,20 +152,21 @@ class Jobs extends Component {
 
   renderDiffStatus = () => {
     const {currentStatus} = this.state
-    if (status.inprogress === currentStatus) {
-      return this.renderLoader()
-    }
-    if (status.success === currentStatus) {
-      return this.renderUserProfile()
-    }
-    if (status.fail === currentStatus) {
-      return (
-        <div className="retry-div">
-          <button type="button" className="retry-btn">
-            Retry
-          </button>
-        </div>
-      )
+    switch (currentStatus) {
+      case status.inprogress:
+        return this.renderLoader()
+      case status.success:
+        return this.renderUserProfile()
+      case status.fail:
+        return (
+          <div className="retry-div">
+            <button type="button" className="retry-btn">
+              Retry
+            </button>
+          </div>
+        )
+      default:
+        return null
     }
   }
 
@@ -170,7 +180,7 @@ class Jobs extends Component {
 
   onCheckSalaryInput = event => {
     this.setState({minimumPackage: event.target.value}, this.getJobsList)
-    console.log(event.target.value)
+    // console.log(event.target.value)
   }
 
   onTypeChange = event => {
@@ -187,9 +197,30 @@ class Jobs extends Component {
     }
   }
 
-  render() {
-    const {apiStatus, jobsList} = this.state
+  onChangeLoaction = event => {
+    const {loactions} = this.state
+    const nameOfLoaction = event.target.value
+    if (loactions.includes(nameOfLoaction)) {
+      const filtredLocList = loactions.filter(each => each !== nameOfLoaction)
+      this.setState({loactions: filtredLocList})
+    } else {
+      this.setState(prev => ({loactions: [...prev.loactions, nameOfLoaction]}))
+    }
+  }
 
+  render() {
+    const {apiStatus, jobsList, loactions} = this.state
+    // console.log(loactions)
+    const filtredJobList = jobsList.filter(each => {
+      if (loactions.length === 0) {
+        return each
+      }
+      if (loactions.includes(each.location)) {
+        return each
+      }
+      return null
+    })
+    // console.log(filtredJobList)
     return (
       <div className="jobs-bg-container">
         <Header />
@@ -256,6 +287,24 @@ class Jobs extends Component {
                 </li>
               ))}
             </ul>
+            <hr className="h-line hl2" />
+            <h1 className="sub-headings">Locations</h1>
+            <ul className="empolyment-type-div">
+              {loactionsList.map(each => (
+                <li key={each.locId} className="check-box">
+                  <input
+                    onChange={this.onChangeLoaction}
+                    value={each.loactionName}
+                    id={each.locId}
+                    type="checkbox"
+                    className="check-input"
+                  />
+                  <label htmlFor={each.locId} className="check-label">
+                    {each.loactionName}
+                  </label>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="search-job-items-div">
@@ -276,7 +325,7 @@ class Jobs extends Component {
                 <IoIosSearch />
               </button>
             </div>
-            <JobItem apiStatus={apiStatus} jobsList={jobsList} />
+            <JobItem apiStatus={apiStatus} jobsList={filtredJobList} />
           </div>
         </div>
       </div>
